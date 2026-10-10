@@ -325,6 +325,19 @@ footer {
   white-space: nowrap;
 }
 
+/* 关于我：毛玻璃面板 */
+.about-panel {
+  padding: 1.5rem 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 40px -24px rgba(30, 41, 59, 0.25);
+}
+.about-panel .sub {
+  margin-bottom: 1.1rem;
+}
+
 /* 技能标签 */
 .skills {
   display: flex;
