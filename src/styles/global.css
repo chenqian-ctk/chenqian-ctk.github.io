@@ -1,8 +1,8 @@
 :root {
   --bg: #f3f5fb;
-  --text: #1e293b;
-  --muted: #64748b;
-  --cyan: #0891b2;
+  --text: #0f172a;
+  --muted: #475569;
+  --cyan: #0e7490;
   --violet: #7c3aed;
   --pink: #db2777;
   --orange: #ea580c;
@@ -64,10 +64,6 @@ header {
   left: 0;
   right: 0;
   z-index: 50;
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  background: rgba(255, 255, 255, 0.6);
-  border-bottom: 1px solid var(--border);
 }
 nav {
   max-width: 1200px;
@@ -81,6 +77,7 @@ nav {
   font-weight: 700;
   color: var(--text);
   letter-spacing: 0.5px;
+  text-shadow: 0 1px 8px rgba(255, 255, 255, 0.65);
 }
 .brand .dot {
   color: var(--violet);
@@ -88,25 +85,25 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.4rem;
+  flex-wrap: wrap;
+  gap: 0.6rem;
 }
 .nav-links a {
-  color: var(--muted);
-  font-size: 0.92rem;
-}
-.nav-links a:hover {
-  color: var(--text);
-  text-decoration: none;
-}
-.nav-links a.gh {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.3rem 0.75rem;
+  padding: 0.32rem 0.75rem;
   border: 1px solid var(--border-soft);
   border-radius: 999px;
   color: var(--text);
   background: var(--glass);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.nav-links a:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  text-decoration: none;
 }
 .nav-links a.gh:hover {
   border-color: var(--violet);
@@ -178,6 +175,7 @@ footer {
   line-height: 1.18;
   margin: 0.6rem 0 0.9rem;
   letter-spacing: -0.5px;
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.6);
 }
 .hero h1 .grad {
   background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
