@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+<BaseLayout title="chenqian-ctk 的博客" description="AI / Agent 学习笔记与技术分享">
+  <section class="hero">
+    <h1>Hi，我是 chenqian-ctk 👋</h1>
+    <p>正在学习 AI / Agent 方向，这里记录我的学习笔记与小项目。</p>
+    <div class="badges">
+      <a href="https://github.com/chenqian-ctk/langchain-rag-demo">LangChain · RAG</a>
+      <a href="https://github.com/chenqian-ctk/langgraph-agent-demo">LangGraph · Agent</a>
+    </div>
+  </section>
+
+  <section class="posts">
+    <h2>文章</h2>
+    {posts.map((post) => (
+      <a class="card" href={`/posts/${post.slug}/`}>
+        <div class="card-title">{post.data.title}</div>
+        <div class="card-desc">{post.data.description}</div>
+        <div class="card-meta">
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString('zh-CN')}
+          </time>
+        </div>
+      </a>
+    ))}
+  </section>
+</BaseLayout>
