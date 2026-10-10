@@ -32,15 +32,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* 背景：背景图 + 轻量遮罩 */
+/* 背景：背景图（中下对齐，原色调） */
 .bg {
   position: fixed;
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  background:
-    linear-gradient(rgba(246, 248, 253, 0.5), rgba(238, 241, 249, 0.5)),
-    url('/bg.jpg') center / cover no-repeat;
+  background: url('/bg.jpg') center 70% / cover no-repeat;
 }
 .grid {
   position: absolute;
