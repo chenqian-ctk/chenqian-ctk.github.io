@@ -7,14 +7,14 @@ const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
-<BaseLayout title="chenqian-ctk · AI / Agent 求职作品集" description="AI / Agent 方向技术博客与项目作品集">
+<BaseLayout title="chenqian-ctk · AI / Agent 技术博客" description="AI / Agent 方向技术博客与项目作品集">
   <div class="hero">
     <div class="hero-text">
       <span class="eyebrow">// chenqian-ctk · AI / Agent Portfolio</span>
-      <h1><span class="grad">AI / Agent</span> 工程师 · 求职中</h1>
+      <h1><span class="grad">AI / Agent</span> 工程师</h1>
       <p class="sub">
         这是我的技术博客与项目作品集。我专注于大语言模型应用开发，掌握
-        LangChain / LangGraph 的工程实践，正在寻找 AI / Agent 方向的实习岗位。
+        LangChain / LangGraph 的工程实践。
       </p>
       <div class="cta">
         <a class="btn primary" href="/#projects">查看项目 →</a>
@@ -76,8 +76,8 @@ const posts = (await getCollection('blog')).sort(
       <h2>关于我</h2>
     </div>
     <p class="sub">
-      AI / Agent 方向求职者，正在寻找实习岗位。熟悉 Python，掌握 LangChain /
-      LangGraph 的工程实践；注重把想法落地为可运行的项目，并沉淀为可复用的文档。
+      熟悉 Python，掌握 LangChain / LangGraph 的工程实践；注重把想法落地为可运行的项目，
+      并沉淀为可复用的文档。
     </p>
     <div class="skills">
       <span class="skill">Python</span>

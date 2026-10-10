@@ -146,7 +146,7 @@ footer {
 /* ===== 顶部：左文案 + 右上角小人 ===== */
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
   gap: 2.5rem;
   align-items: center;
   min-height: 70vh;
@@ -156,11 +156,9 @@ footer {
   padding: 2rem 0;
 }
 .hero-char {
-  align-self: start;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding-top: 1.5rem;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 通用 section */
@@ -365,7 +363,7 @@ footer {
 .character-stage {
   position: relative;
   width: 100%;
-  max-width: 340px;
+  max-width: 440px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -401,7 +399,7 @@ footer {
 }
 .character-img {
   display: block;
-  width: 340px;
+  width: 440px;
   max-width: 100%;
   height: auto;
   will-change: transform;
