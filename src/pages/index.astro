@@ -7,90 +7,86 @@ const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
-<BaseLayout title="chenqian-ctk · AI / Agent 学习笔记" description="AI / Agent 学习笔记与技术分享">
-  <div class="home">
-    <!-- 左列：可滚动内容 -->
-    <div class="content">
-      <section class="hero">
-        <span class="eyebrow">// Hello, I'm chenqian-ctk</span>
-        <h1>正在学习 <span class="grad">AI / Agent</span><br />的准工程师</h1>
-        <p class="sub">
-          这里记录我学习大模型、LangChain、LangGraph 的过程与小项目。
-          目标很明确：找一份 AI / Agent 方向的实习，把学到的东西沉淀成看得见的作品。
-        </p>
-        <div class="cta">
-          <a class="btn primary" href="/#projects">查看项目 →</a>
-          <a class="btn" href="https://github.com/chenqian-ctk" target="_blank" rel="noopener">GitHub</a>
-        </div>
-        <div class="toc">
-          <a href="/#projects">01 · 项目</a>
-          <a href="/#posts">02 · 文章</a>
-          <a href="/#about">03 · 关于</a>
-        </div>
-      </section>
-
-      <section class="section" id="projects">
-        <div class="section-head">
-          <span class="num">01</span>
-          <h2>项目</h2>
-        </div>
-        <div class="projects">
-          <a class="project-card" href="https://github.com/chenqian-ctk/langchain-rag-demo" target="_blank" rel="noopener">
-            <div class="p-icon">📚</div>
-            <h3>langchain-rag-demo</h3>
-            <p>LangChain 入门：本地文档问答（RAG），让大模型「读资料」再回答。</p>
-            <div class="tags"><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">Chroma</span></div>
-          </a>
-          <a class="project-card" href="https://github.com/chenqian-ctk/langgraph-agent-demo" target="_blank" rel="noopener">
-            <div class="p-icon">🤖</div>
-            <h3>langgraph-agent-demo</h3>
-            <p>LangGraph 入门：会自主调用工具的 Agent，多步推理完成任务。</p>
-            <div class="tags"><span class="tag">LangGraph</span><span class="tag">Agent</span><span class="tag">Tool Calling</span></div>
-          </a>
-        </div>
-      </section>
-
-      <section class="section" id="posts">
-        <div class="section-head">
-          <span class="num">02</span>
-          <h2>文章</h2>
-        </div>
-        {posts.map((post) => (
-          <a class="post-card" href={`/posts/${post.id}/`}>
-            <div>
-              <div class="pt">{post.data.title}</div>
-              <div class="pd">{post.data.description}</div>
-            </div>
-            <time datetime={post.data.pubDate.toISOString()}>
-              {post.data.pubDate.toLocaleDateString('zh-CN')}
-            </time>
-          </a>
-        ))}
-      </section>
-
-      <section class="section" id="about">
-        <div class="section-head">
-          <span class="num">03</span>
-          <h2>关于我</h2>
-        </div>
-        <p class="sub">
-          AI / Agent 方向学习者，正在找实习。喜欢把想法变成能跑的小项目，也健身、喝咖啡、爱折腾。
-        </p>
-        <div class="skills">
-          <span class="skill">Python</span>
-          <span class="skill">LangChain</span>
-          <span class="skill">LangGraph</span>
-          <span class="skill">RAG</span>
-          <span class="skill">LLM</span>
-          <span class="skill">Astro</span>
-          <span class="skill">Git</span>
-        </div>
-      </section>
+<BaseLayout title="chenqian-ctk · AI / Agent 求职作品集" description="AI / Agent 方向技术博客与项目作品集">
+  <div class="hero">
+    <div class="hero-text">
+      <span class="eyebrow">// chenqian-ctk · AI / Agent Portfolio</span>
+      <h1><span class="grad">AI / Agent</span> 工程师 · 求职中</h1>
+      <p class="sub">
+        这是我的技术博客与项目作品集。我专注于大语言模型应用开发，掌握
+        LangChain / LangGraph 的工程实践，正在寻找 AI / Agent 方向的实习岗位。
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="/#projects">查看项目 →</a>
+        <a class="btn" href="https://github.com/chenqian-ctk" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="toc">
+        <a href="/#projects">01 · 项目</a>
+        <a href="/#posts">02 · 文章</a>
+        <a href="/#about">03 · 关于</a>
+      </div>
     </div>
-
-    <!-- 右列：固定在右侧的小人（占位中，等你的图） -->
-    <aside class="side">
+    <aside class="hero-char">
       <CharacterScene />
     </aside>
   </div>
+
+  <section class="section" id="projects">
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>项目</h2>
+    </div>
+    <div class="projects">
+      <a class="project-card" href="https://github.com/chenqian-ctk/langchain-rag-demo" target="_blank" rel="noopener">
+        <div class="p-icon">📚</div>
+        <h3>langchain-rag-demo</h3>
+        <p>基于 LangChain 的本地文档问答（RAG）：文档加载 → 切块 → 向量化 → 检索 → 生成，Chroma 向量库 + DeepSeek 推理。</p>
+        <div class="tags"><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">Chroma</span></div>
+      </a>
+      <a class="project-card" href="https://github.com/chenqian-ctk/langgraph-agent-demo" target="_blank" rel="noopener">
+        <div class="p-icon">🤖</div>
+        <h3>langgraph-agent-demo</h3>
+        <p>基于 LangGraph 的自主 Agent：StateGraph 状态建模，LLM 决策 → 工具调用 → 观察结果 → 再决策，支持多步推理。</p>
+        <div class="tags"><span class="tag">LangGraph</span><span class="tag">Agent</span><span class="tag">Tool Calling</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section" id="posts">
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>文章</h2>
+    </div>
+    {posts.map((post) => (
+      <a class="post-card" href={`/posts/${post.id}/`}>
+        <div>
+          <div class="pt">{post.data.title}</div>
+          <div class="pd">{post.data.description}</div>
+        </div>
+        <time datetime={post.data.pubDate.toISOString()}>
+          {post.data.pubDate.toLocaleDateString('zh-CN')}
+        </time>
+      </a>
+    ))}
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>关于我</h2>
+    </div>
+    <p class="sub">
+      AI / Agent 方向求职者，正在寻找实习岗位。熟悉 Python，掌握 LangChain /
+      LangGraph 的工程实践；注重把想法落地为可运行的项目，并沉淀为可复用的文档。
+    </p>
+    <div class="skills">
+      <span class="skill">Python</span>
+      <span class="skill">LangChain</span>
+      <span class="skill">LangGraph</span>
+      <span class="skill">RAG</span>
+      <span class="skill">LLM</span>
+      <span class="skill">Astro</span>
+      <span class="skill">Git</span>
+    </div>
+  </section>
 </BaseLayout>
