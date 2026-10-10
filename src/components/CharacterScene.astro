@@ -1,276 +1,44 @@
 ---
-// 右侧科技感办公场景：卡通小人坐在电脑前，眼睛跟随鼠标移动
+// 小人图 + 整图跟随鼠标动效（整张图朝鼠标方向轻微倾斜/位移，模拟“在看你”的感觉）
 ---
-<div class="scene" id="scene">
-  <div class="scene-glow"></div>
-
-  <svg viewBox="0 0 480 560" class="scene-svg" aria-hidden="true">
-    <defs>
-      <linearGradient id="bgG" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#0b1120" />
-        <stop offset="1" stop-color="#151b33" />
-      </linearGradient>
-      <radialGradient id="glowG" cx="0.5" cy="0.5" r="0.5">
-        <stop offset="0" stop-color="#22d3ee" stop-opacity="0.28" />
-        <stop offset="1" stop-color="#22d3ee" stop-opacity="0" />
-      </radialGradient>
-      <linearGradient id="deskG" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#1f2a44" />
-        <stop offset="1" stop-color="#0c1220" />
-      </linearGradient>
-      <linearGradient id="screenG" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#22d3ee" />
-        <stop offset="1" stop-color="#8b5cf6" />
-      </linearGradient>
-      <linearGradient id="skinG" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#f7cda9" />
-        <stop offset="1" stop-color="#efb98e" />
-      </linearGradient>
-    </defs>
-
-    <!-- 背景 -->
-    <rect width="480" height="560" fill="url(#bgG)" />
-    <circle cx="240" cy="300" r="210" fill="url(#glowG)" />
-
-    <!-- 窗户 -->
-    <g>
-      <rect x="40" y="44" width="112" height="126" rx="14" fill="#0d1526" stroke="#26334d" stroke-width="2" />
-      <circle cx="86" cy="80" r="14" fill="#fde68a" />
-      <circle cx="86" cy="80" r="18" fill="none" stroke="#fde68a" stroke-opacity="0.25" stroke-width="2" />
-      <circle cx="122" cy="70" r="2" fill="#ffffff" opacity="0.8" />
-      <circle cx="132" cy="102" r="1.6" fill="#ffffff" opacity="0.6" />
-      <circle cx="102" cy="120" r="1.4" fill="#ffffff" opacity="0.5" />
-    </g>
-
-    <!-- 右侧装饰画 -->
-    <g>
-      <rect x="356" y="52" width="80" height="100" rx="8" fill="#141c31" stroke="#26334d" stroke-width="2" />
-      <circle cx="396" cy="88" r="12" fill="none" stroke="#22d3ee" stroke-width="2.5" />
-      <path d="M384 112 L396 100 L408 112" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-      <rect x="372" y="126" width="48" height="6" rx="3" fill="#26334d" />
-    </g>
-
-    <!-- 小人 -->
-    <g class="character">
-      <!-- 手臂（画在躯干前，肩部被背心遮住） -->
-      <path d="M196 228 L176 292 L204 340" fill="none" stroke="#f1bd92" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
-      <path d="M186 250 q -8 10 -4 24" fill="none" stroke="#e0a97e" stroke-width="3" stroke-linecap="round" opacity="0.6" />
-      <path d="M284 228 L304 292 L276 340" fill="none" stroke="#f1bd92" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
-      <path d="M294 250 q 8 10 4 24" fill="none" stroke="#e0a97e" stroke-width="3" stroke-linecap="round" opacity="0.6" />
-
-      <!-- 背心躯干 -->
-      <path d="M180 214 C182 204 208 198 240 198 C272 198 298 204 300 214 L302 268 C304 296 296 314 288 324 L192 324 C184 314 176 296 178 268 Z" fill="#f97316" />
-      <path d="M196 200 L210 232 L226 228 L210 198 Z" fill="#ea580c" opacity="0.5" />
-      <path d="M284 200 L270 232 L254 228 L270 198 Z" fill="#ea580c" opacity="0.5" />
-      <circle cx="240" cy="262" r="10" fill="none" stroke="#ffedd5" stroke-width="2.5" opacity="0.9" />
-
-      <!-- 脖子 -->
-      <rect x="230" y="196" width="20" height="16" rx="7" fill="#e8b58c" />
-
-      <!-- 头 -->
-      <ellipse cx="240" cy="150" rx="47" ry="51" fill="url(#skinG)" />
-      <circle cx="193" cy="152" r="10" fill="url(#skinG)" />
-      <circle cx="287" cy="152" r="10" fill="url(#skinG)" />
-
-      <!-- 头发 -->
-      <path d="M192 142 C190 98 216 90 240 90 C264 90 290 98 288 142 C286 120 268 108 240 108 C212 108 194 120 192 142 Z" fill="#24222f" />
-
-      <!-- 眉毛 -->
-      <path d="M206 124 q10 -6 22 -2" fill="none" stroke="#24222f" stroke-width="3.5" stroke-linecap="round" />
-      <path d="M252 122 q12 -4 22 2" fill="none" stroke="#24222f" stroke-width="3.5" stroke-linecap="round" />
-
-      <!-- 眼睛 -->
-      <ellipse class="eye" cx="218" cy="148" rx="13" ry="14.5" fill="#ffffff" />
-      <ellipse class="eye" cx="262" cy="148" rx="13" ry="14.5" fill="#ffffff" />
-      <circle class="pupil" cx="218" cy="149" r="6.2" fill="#20242e" />
-      <circle class="pupil" cx="262" cy="149" r="6.2" fill="#20242e" />
-      <circle cx="221" cy="146" r="2.2" fill="#ffffff" />
-      <circle cx="265" cy="146" r="2.2" fill="#ffffff" />
-
-      <!-- 鼻子 / 嘴巴 / 腮红 -->
-      <path d="M240 160 q4 5 0 8" fill="none" stroke="#e3a87c" stroke-width="2.5" stroke-linecap="round" />
-      <path d="M227 172 Q240 184 253 172" fill="none" stroke="#c96f4a" stroke-width="3" stroke-linecap="round" />
-      <ellipse cx="203" cy="164" rx="8" ry="4.5" fill="#fb7185" opacity="0.45" />
-      <ellipse cx="277" cy="164" rx="8" ry="4.5" fill="#fb7185" opacity="0.45" />
-
-      <!-- 耳机 -->
-      <path d="M189 150 Q240 86 291 150" fill="none" stroke="#101828" stroke-width="9" stroke-linecap="round" />
-      <rect x="182" y="140" width="17" height="30" rx="9" fill="#101828" />
-      <rect x="281" y="140" width="17" height="30" rx="9" fill="#101828" />
-      <circle cx="190.5" cy="155" r="3.5" fill="#22d3ee" />
-      <circle cx="289.5" cy="155" r="3.5" fill="#22d3ee" />
-    </g>
-
-    <!-- 桌子 -->
-    <rect x="28" y="348" width="424" height="16" rx="8" fill="#33415e" />
-    <rect x="28" y="360" width="424" height="200" fill="url(#deskG)" />
-
-    <!-- 笔记本电脑 -->
-    <g>
-      <rect x="58" y="266" width="128" height="84" rx="8" fill="#0b1424" stroke="#26334d" stroke-width="2" />
-      <rect class="laptop-screen" x="66" y="274" width="112" height="68" rx="4" fill="url(#screenG)" opacity="0.9" />
-      <rect x="76" y="286" width="60" height="5" rx="2.5" fill="#0b1424" opacity="0.55" />
-      <rect x="76" y="298" width="88" height="5" rx="2.5" fill="#0b1424" opacity="0.4" />
-      <rect x="76" y="310" width="46" height="5" rx="2.5" fill="#0b1424" opacity="0.4" />
-      <rect x="76" y="322" width="72" height="5" rx="2.5" fill="#0b1424" opacity="0.3" />
-      <rect x="50" y="350" width="144" height="10" rx="4" fill="#26334d" />
-    </g>
-
-    <!-- 键盘 -->
-    <rect x="204" y="352" width="76" height="11" rx="4" fill="#1c2740" />
-    <rect x="208" y="355" width="68" height="3" rx="1.5" fill="#33415e" opacity="0.6" />
-
-    <!-- 手（放在键盘上） -->
-    <ellipse cx="204" cy="346" rx="13" ry="9" fill="url(#skinG)" />
-    <ellipse cx="276" cy="346" rx="13" ry="9" fill="url(#skinG)" />
-
-    <!-- 咖啡杯 -->
-    <g>
-      <path d="M350 320 q3 8 3 18" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" opacity="0.6" />
-      <path d="M344 320 q3 8 3 18" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" opacity="0.4" />
-      <rect x="342" y="318" width="36" height="32" rx="7" fill="#e2e8f0" />
-      <path d="M378 324 q10 0 10 10 q0 10 -10 10" fill="none" stroke="#e2e8f0" stroke-width="5" />
-      <rect x="346" y="322" width="28" height="6" rx="3" fill="#6b4423" />
-    </g>
-
-    <!-- 绿植 -->
-    <g>
-      <path d="M404 350 L398 322 Q404 312 410 322 Z" fill="#16a34a" />
-      <path d="M404 350 L404 314 Q410 306 416 318 Z" fill="#22c55e" />
-      <path d="M404 350 L410 322 Q416 314 420 326 Z" fill="#15803d" />
-      <rect x="394" y="350" width="22" height="14" rx="3" fill="#92400e" />
-    </g>
-  </svg>
-
-  <!-- 浮动气泡：个人特点 -->
-  <div class="bubble b1">🤖 AI / Agent</div>
-  <div class="bubble b2">⚡ 行动派</div>
-  <div class="bubble b3">🏋️ 撸铁选手</div>
-  <div class="bubble b4">☕ 咖啡续命</div>
-  <div class="bubble b5">💻 Python · LangChain</div>
-  <div class="bubble b6">🎯 找实习中</div>
-
-  <!-- 纯装饰 -->
-  <span class="deco d1">+</span>
-  <span class="deco d2">✦</span>
-  <span class="deco d3">+</span>
-  <span class="deco d4">✦</span>
+<div class="character-stage">
+  <div class="char-glow"></div>
+  <div class="char-float">
+    <img
+      class="character-img"
+      src="/character.png"
+      alt="我的卡通小人"
+      width="606"
+      height="630"
+      loading="eager"
+    />
+  </div>
 </div>
 
-<style>
-  .scene {
-    position: relative;
-    width: min(480px, 100%);
-    aspect-ratio: 480 / 560;
-    border-radius: 24px;
-    overflow: hidden;
-    border: 1px solid rgba(148, 163, 184, 0.18);
-    box-shadow: 0 30px 80px -30px rgba(34, 211, 238, 0.35),
-      0 0 0 1px rgba(139, 92, 246, 0.08) inset;
-    background: linear-gradient(180deg, #0b1120, #151b33);
-  }
-  .scene-glow {
-    position: absolute;
-    inset: -20%;
-    background: radial-gradient(circle at 50% 40%, rgba(139, 92, 246, 0.18), transparent 60%);
-    pointer-events: none;
-  }
-  .scene-svg {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  /* 小人轻微上下浮动 */
-  .character {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: bob 5.5s ease-in-out infinite;
-  }
-  @keyframes bob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-  }
-
-  .laptop-screen {
-    animation: screenPulse 3.2s ease-in-out infinite;
-  }
-  @keyframes screenPulse {
-    0%, 100% { opacity: 0.9; }
-    50% { opacity: 1; }
-  }
-
-  /* 气泡 */
-  .bubble {
-    position: absolute;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text, #e6edf6);
-    background: rgba(17, 24, 39, 0.72);
-    border: 1px solid rgba(148, 163, 184, 0.22);
-    border-radius: 999px;
-    backdrop-filter: blur(8px);
-    white-space: nowrap;
-    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
-    animation: float 6s ease-in-out infinite;
-  }
-  .b1 { top: 7%; left: 4%; animation-delay: 0s; }
-  .b2 { top: 12%; right: 3%; animation-delay: 1.2s; }
-  .b3 { top: 38%; left: -1%; animation-delay: 2.1s; }
-  .b4 { top: 44%; right: -2%; animation-delay: 0.6s; }
-  .b5 { bottom: 10%; left: 5%; animation-delay: 1.6s; }
-  .b6 { bottom: 14%; right: 4%; animation-delay: 2.6s; }
-
-  .deco {
-    position: absolute;
-    color: rgba(34, 211, 238, 0.55);
-    font-weight: 700;
-    animation: float 7s ease-in-out infinite;
-    pointer-events: none;
-  }
-  .d1 { top: 22%; left: 20%; font-size: 1.4rem; }
-  .d2 { top: 30%; right: 22%; font-size: 1.1rem; color: rgba(139, 92, 246, 0.55); }
-  .d3 { bottom: 22%; left: 30%; font-size: 1.2rem; }
-  .d4 { bottom: 28%; right: 14%; font-size: 1.3rem; color: rgba(244, 114, 182, 0.5); }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-</style>
-
 <script>
-  // 眼睛跟随鼠标：把光标在视口中的位置映射为瞳孔的小幅偏移，并用插值平滑
-  const pupils = Array.from(document.querySelectorAll('.pupil'));
-  if (pupils.length) {
-    const base = pupils.map((p) => ({
-      cx: parseFloat(p.getAttribute('cx') || '0'),
-      cy: parseFloat(p.getAttribute('cy') || '0'),
-    }));
-    const MAX = 3.2; // 瞳孔最大偏移（SVG 单位）
-    let tx = 0, ty = 0; // 目标偏移 [-1, 1]
-    let cx = 0, cy = 0; // 当前平滑后的偏移
+  const img = document.querySelector('.character-img');
+  if (img) {
+    let tx = 0, ty = 0, rx = 0, ry = 0;   // 当前值
+    let ttx = 0, tty = 0, trx = 0, try_ = 0; // 目标值
 
     window.addEventListener('mousemove', (e) => {
-      tx = (e.clientX / window.innerWidth - 0.5) * 2;
-      ty = (e.clientY / window.innerHeight - 0.5) * 2;
-    });
-    document.addEventListener('mouseleave', () => {
-      tx = 0;
-      ty = 0;
+      const nx = (e.clientX / window.innerWidth) * 2 - 1;   // -1 .. 1
+      const ny = (e.clientY / window.innerHeight) * 2 - 1;  // -1 .. 1
+      ttx = nx * 16;   // 水平位移
+      tty = ny * 12;   // 垂直位移
+      try_ = nx * 7;   // 左右倾斜
+      trx = -ny * 5;   // 上下倾斜
     });
 
     const loop = () => {
-      cx += (tx - cx) * 0.12;
-      cy += (ty - cy) * 0.12;
-      pupils.forEach((p, i) => {
-        p.setAttribute('cx', (base[i].cx + cx * MAX).toFixed(2));
-        p.setAttribute('cy', (base[i].cy + cy * MAX).toFixed(2));
-      });
+      tx += (ttx - tx) * 0.07;
+      ty += (tty - ty) * 0.07;
+      rx += (trx - rx) * 0.07;
+      ry += (try_ - ry) * 0.07;
+      img.style.transform =
+        `translate3d(${tx}px, ${ty}px, 0) rotateX(${rx}deg) rotateY(${ry}deg)`;
       requestAnimationFrame(loop);
     };
-    requestAnimationFrame(loop);
+    loop();
   }
 </script>
