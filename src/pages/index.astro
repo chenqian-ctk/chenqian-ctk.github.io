@@ -19,7 +19,7 @@ const posts = (await getCollection('blog')).sort(
   <section class="posts">
     <h2>文章</h2>
     {posts.map((post) => (
-      <a class="card" href={`/posts/${post.slug}/`}>
+      <a class="card" href={`/posts/${post.id}/`}>
         <div class="card-title">{post.data.title}</div>
         <div class="card-desc">{post.data.description}</div>
         <div class="card-meta">
