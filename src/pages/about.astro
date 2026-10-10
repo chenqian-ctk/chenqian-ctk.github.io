@@ -1,25 +1,40 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="关于我" description="关于 chenqian-ctk">
-  <h1>关于我</h1>
-  <p>你好，我是 chenqian-ctk，目前在学习 AI / Agent 方向，正在寻找相关实习机会。</p>
-  <p>这个博客用来记录我的学习过程和小项目，欢迎交流。</p>
+<BaseLayout title="关于我 · chenqian-ctk" description="关于 chenqian-ctk">
+  <div class="prose">
+    <span class="eyebrow">// about</span>
+    <h1>关于我</h1>
+    <p>你好，我是 chenqian-ctk，目前在学习 AI / Agent 方向，正在寻找相关实习机会。</p>
+    <p>我习惯边学边动手：把每个知识点都做成能跑起来的小项目，再写成文章沉淀下来。这个博客就是我的学习轨迹。</p>
 
-  <h2>项目</h2>
-  <ul>
-    <li>
-      <a href="https://github.com/chenqian-ctk/langchain-rag-demo">langchain-rag-demo</a>
-      — LangChain 入门：本地文档问答（RAG）
-    </li>
-    <li>
-      <a href="https://github.com/chenqian-ctk/langgraph-agent-demo">langgraph-agent-demo</a>
-      — LangGraph 入门：带工具的 Agent
-    </li>
-  </ul>
+    <h2>项目</h2>
+    <ul>
+      <li>
+        <a href="https://github.com/chenqian-ctk/langchain-rag-demo" target="_blank" rel="noopener">langchain-rag-demo</a>
+        — LangChain 入门：本地文档问答（RAG）
+      </li>
+      <li>
+        <a href="https://github.com/chenqian-ctk/langgraph-agent-demo" target="_blank" rel="noopener">langgraph-agent-demo</a>
+        — LangGraph 入门：带工具的 Agent
+      </li>
+    </ul>
 
-  <h2>联系方式</h2>
-  <ul>
-    <li>GitHub：<a href="https://github.com/chenqian-ctk">chenqian-ctk</a></li>
-  </ul>
+    <h2>技术栈</h2>
+    <div class="skills">
+      <span class="skill">Python</span>
+      <span class="skill">LangChain</span>
+      <span class="skill">LangGraph</span>
+      <span class="skill">RAG</span>
+      <span class="skill">LLM</span>
+      <span class="skill">Astro</span>
+      <span class="skill">Git</span>
+    </div>
+
+    <h2>联系方式</h2>
+    <ul>
+      <li>GitHub：<a href="https://github.com/chenqian-ctk" target="_blank" rel="noopener">chenqian-ctk</a></li>
+      <li>博客：<a href="/">chenqian-ctk.github.io</a></li>
+    </ul>
+  </div>
 </BaseLayout>

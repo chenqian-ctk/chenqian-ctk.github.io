@@ -1,33 +1,96 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CharacterScene from '../components/CharacterScene.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
-<BaseLayout title="chenqian-ctk 的博客" description="AI / Agent 学习笔记与技术分享">
-  <section class="hero">
-    <h1>Hi，我是 chenqian-ctk 👋</h1>
-    <p>正在学习 AI / Agent 方向，这里记录我的学习笔记与小项目。</p>
-    <div class="badges">
-      <a href="https://github.com/chenqian-ctk/langchain-rag-demo">LangChain · RAG</a>
-      <a href="https://github.com/chenqian-ctk/langgraph-agent-demo">LangGraph · Agent</a>
-    </div>
-  </section>
-
-  <section class="posts">
-    <h2>文章</h2>
-    {posts.map((post) => (
-      <a class="card" href={`/posts/${post.id}/`}>
-        <div class="card-title">{post.data.title}</div>
-        <div class="card-desc">{post.data.description}</div>
-        <div class="card-meta">
-          <time datetime={post.data.pubDate.toISOString()}>
-            {post.data.pubDate.toLocaleDateString('zh-CN')}
-          </time>
+<BaseLayout title="chenqian-ctk · AI / Agent 学习笔记" description="AI / Agent 学习笔记与技术分享">
+  <div class="home">
+    <!-- 左列：可滚动内容 -->
+    <div class="content">
+      <section class="hero">
+        <span class="eyebrow">// Hello, I'm chenqian-ctk</span>
+        <h1>正在学习 <span class="grad">AI / Agent</span><br />的准工程师</h1>
+        <p class="sub">
+          这里记录我学习大模型、LangChain、LangGraph 的过程与小项目。
+          目标很明确：找一份 AI / Agent 方向的实习，把学到的东西沉淀成看得见的作品。
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="/#projects">查看项目 →</a>
+          <a class="btn" href="https://github.com/chenqian-ctk" target="_blank" rel="noopener">GitHub</a>
         </div>
-      </a>
-    ))}
-  </section>
+        <div class="toc">
+          <a href="/#projects">01 · 项目</a>
+          <a href="/#posts">02 · 文章</a>
+          <a href="/#about">03 · 关于</a>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-head">
+          <span class="num">01</span>
+          <h2>项目</h2>
+        </div>
+        <div class="projects">
+          <a class="project-card" href="https://github.com/chenqian-ctk/langchain-rag-demo" target="_blank" rel="noopener">
+            <div class="p-icon">📚</div>
+            <h3>langchain-rag-demo</h3>
+            <p>LangChain 入门：本地文档问答（RAG），让大模型「读资料」再回答。</p>
+            <div class="tags"><span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">Chroma</span></div>
+          </a>
+          <a class="project-card" href="https://github.com/chenqian-ctk/langgraph-agent-demo" target="_blank" rel="noopener">
+            <div class="p-icon">🤖</div>
+            <h3>langgraph-agent-demo</h3>
+            <p>LangGraph 入门：会自主调用工具的 Agent，多步推理完成任务。</p>
+            <div class="tags"><span class="tag">LangGraph</span><span class="tag">Agent</span><span class="tag">Tool Calling</span></div>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" id="posts">
+        <div class="section-head">
+          <span class="num">02</span>
+          <h2>文章</h2>
+        </div>
+        {posts.map((post) => (
+          <a class="post-card" href={`/posts/${post.id}/`}>
+            <div>
+              <div class="pt">{post.data.title}</div>
+              <div class="pd">{post.data.description}</div>
+            </div>
+            <time datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate.toLocaleDateString('zh-CN')}
+            </time>
+          </a>
+        ))}
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-head">
+          <span class="num">03</span>
+          <h2>关于我</h2>
+        </div>
+        <p class="sub">
+          AI / Agent 方向学习者，正在找实习。喜欢把想法变成能跑的小项目，也健身、喝咖啡、爱折腾。
+        </p>
+        <div class="skills">
+          <span class="skill">Python</span>
+          <span class="skill">LangChain</span>
+          <span class="skill">LangGraph</span>
+          <span class="skill">RAG</span>
+          <span class="skill">LLM</span>
+          <span class="skill">Astro</span>
+          <span class="skill">Git</span>
+        </div>
+      </section>
+    </div>
+
+    <!-- 右列：固定在右侧的小人场景 -->
+    <aside class="side">
+      <CharacterScene />
+    </aside>
+  </div>
 </BaseLayout>
