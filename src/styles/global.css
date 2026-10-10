@@ -32,28 +32,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* 背景：柔和渐变色斑 + 网格 */
+/* 背景：背景图 + 轻量遮罩 */
 .bg {
   position: fixed;
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  background: linear-gradient(180deg, #f6f8fd 0%, #eef1f9 100%);
-}
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.55;
-  animation: drift 18s ease-in-out infinite;
-}
-.b-cyan { width: 42vw; height: 42vw; left: -12vw; top: -12vw; background: #7dd3fc; }
-.b-violet { width: 40vw; height: 40vw; right: -14vw; top: 8vh; background: #c4b5fd; animation-delay: -6s; }
-.b-pink { width: 36vw; height: 36vw; left: 22vw; bottom: -16vw; background: #fbcfe8; animation-delay: -12s; }
-@keyframes drift {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(3vw, 2vh) scale(1.05); }
-  66% { transform: translate(-2vw, -3vh) scale(0.97); }
+  background:
+    linear-gradient(rgba(246, 248, 253, 0.5), rgba(238, 241, 249, 0.5)),
+    url('/bg.jpg') center / cover no-repeat;
 }
 .grid {
   position: absolute;
